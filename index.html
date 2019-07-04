@@ -1,0 +1,57 @@
+<html>
+    
+<head>
+	<meta charset="UTF-8">
+    <title> Povrsina kocke </title>
+	<link href="style.css" type="text/css" rel="stylesheet">
+</head>
+
+
+<body>
+    <div id="wrapper"> <br>
+	    <div id="cube">
+		    <form>
+			    <label for="number1">Insert one side of cube:  </label>
+			    <input type="number" id="number1"> <br> <br>
+				<h3 align="center"> Click on cube to get results! </h3>
+				<label>
+				    <input type="button" align="center"  id="btn">
+				    <img src="img/cube.png" id="picture" align="center" name="result">
+				</label>
+				<p align="center">Result:</p>
+                 <div id="result1"></div>
+                  
+			</form>
+    </div>
+</div>
+</body>
+</html>
+<script>
+                function Cube (a){
+				     
+					this.side = function(page){
+					    a = page;
+					};
+					this.volume = function(){
+					    return a*a*a;
+					};
+					this.lenght = function(){
+					    return 12 * a;
+					};
+					}
+					function showResults(cube, id) {
+					    document.getElementById(id).insertAdjacentHTML('beforeend', '<p>Volume of cube:'+cube.volume()+'m<sup>3</sup></p>'
+						+'<p> Cube lenght of sides:'+cube.lenght()+'m<sup>2</sup></p>');
+					};
+				
+			var cubePage1 = new Cube();
+			
+			var button= document.getElementById('btn');
+			button.onclick= function(){
+			    cubePage1.side(document.getElementById('number1').value);
+				showResults(cubePage1,'result1')
+				
+			
+			}
+	
+</script>
